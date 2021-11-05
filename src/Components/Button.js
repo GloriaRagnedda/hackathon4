@@ -4,12 +4,17 @@ export default function Button({
     cityTo,
     affilId,
     directFlight,
+    setLoading
 }) {
     let searchQuery = `fly_from=${cityFrom}&fly_to=${cityTo}&partner=${affilId}`;
 
-    if (directFlight === false) {
-        searchQuery += 'max_stopovers=0';
+    if (directFlight === true) {
+        searchQuery += '&max_stopovers=0';
     }
 
-    return <button onClick={() => setSearch(searchQuery)}>Submit</button>;
+    const handleButtton = () => {
+        setLoading(true)
+        setSearch(searchQuery)
+    }
+    return <div className="btn-container"><button className= "btn" onClick={() => setSearch(searchQuery)}>Submit</button></div>;
 }

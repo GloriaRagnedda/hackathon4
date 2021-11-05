@@ -3,7 +3,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
 export default function Reload() {
-  //other logic
+  
     return (
       <Loader
         type="Puff"

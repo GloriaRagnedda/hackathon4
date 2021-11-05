@@ -2,13 +2,13 @@ import { DateTime } from 'luxon';
 
 export default function Flights({flights}){
 
-    // if (flights.length === 0) {
-    //     return (
-    //         <div>
-    //             <p>no dffg</p>
-    //         </div>
-    //     )
-    // }
+    if (!flights) {
+        return (
+            <div>
+                <p>No flights avaiable</p>
+            </div>
+        )
+    }
     console.log(flights)
     return(
         flights.map((fly, i)=>(

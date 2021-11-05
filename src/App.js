@@ -12,8 +12,8 @@ function App() {
     const [flights, setFlights] = useState([]);
     const [directFlight, setdirectFlight] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [cityFrom, setCityFrom] = useState('PRG');
-    const [cityTo, setCityTo] = useState('VLC');
+    const [cityFrom, setCityFrom] = useState('VLC');
+    const [cityTo, setCityTo] = useState('PRG');
     const [search, setSearch] = useState(
         `fly_from=${cityFrom}&fly_to=${cityTo}&partner=${affilId}`
     );
@@ -22,6 +22,7 @@ function App() {
     async function fetchFlights() {
         setLoading(true);
         const response = await fetch(firstUrl);
+        console.log(firstUrl);
         const results = await response.json();
         console.log(results);
         setFlights(results.data);
@@ -34,19 +35,24 @@ function App() {
 
     return (
         <div className="App">
-            <FilterFrom cityFrom={cityFrom} setCityFrom={setCityFrom} />
-            <FilterTo cityTo={cityTo} setCityTo={setCityTo} />
-            <DirectFlights
-                directFlight={directFlight}
-                setdirectFlight={setdirectFlight}
-            />
-            <Button
-                setSearch={setSearch}
-                cityFrom={cityFrom}
-                cityTo={cityTo}
-                affilId={affilId}
-                directFlight={directFlight}
-            />
+            <div className="container">
+                <h1>OUR BEST FLIGHTS</h1>
+                <FilterFrom cityFrom={cityFrom} setCityFrom={setCityFrom} />
+                <FilterTo cityTo={cityTo} setCityTo={setCityTo} />
+                <DirectFlights
+                    directFlight={directFlight}
+                    setdirectFlight={setdirectFlight}
+                />
+                <Button
+                    setSearch={setSearch}
+                    cityFrom={cityFrom}
+                    cityTo={cityTo}
+                    affilId={affilId}
+                    directFlight={directFlight}
+                    setLoading={setLoading}
+                />
+            </div>
+
             {loading ? <Reload /> : <Flights flights={flights} />}
         </div>
     );

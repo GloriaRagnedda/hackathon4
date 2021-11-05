@@ -2,7 +2,7 @@ import React from 'react';
 
 const DirectFlights = ({ directFlight, setdirectFlight }) => {
     return (
-        <div>
+        <div className="direct">
             <input
                 type="checkbox"
                 id="directFlight"

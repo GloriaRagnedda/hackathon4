@@ -1,6 +1,6 @@
 export default function FilterFrom({cityFrom, setCityFrom}){
     return(
-        <select 
+        <select className="filter" 
     value={cityFrom} 
     onChange={(event) => setCityFrom(event.target.value)}
         >
