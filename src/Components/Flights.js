@@ -1,6 +1,15 @@
 import { DateTime } from 'luxon';
 
 export default function Flights({flights}){
+
+    // if (flights.length === 0) {
+    //     return (
+    //         <div>
+    //             <p>no dffg</p>
+    //         </div>
+    //     )
+    // }
+    console.log(flights)
     return(
         flights.map((fly, i)=>(
             <div key={i}>
@@ -10,7 +19,6 @@ export default function Flights({flights}){
             <p>Time of landing: {DateTime.fromMillis(fly.dTime * 1000).toFormat('hh:mm')}</p>
             <p>Departure : {fly.duration.departure}</p>
             <p>Price : {fly.price} €</p>
-
             </div>
         ))
     )
